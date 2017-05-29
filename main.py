@@ -9,7 +9,7 @@ from config import BOT_NAME, BOT_TOKEN, AT_BOT
 
 def handle_command(command, channel, slack_client):
     try:
-        response = inspect.getdoc(eval(command))
+        response = "```\n" + inspect.getdoc(eval(command)) + "\n```"
         slack_client.api_call("chat.postMessage",
                               channel=channel,
                               text=response,
